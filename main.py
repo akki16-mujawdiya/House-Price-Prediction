@@ -110,3 +110,6 @@ import joblib
 
 joblib.dump(ran_reg, "model.pkl", compress=3)
 joblib.dump(full_pipeline, "pipeline.pkl", compress=3)
+
+import os
+print(os.path.getsize("house_price_model.pkl")/(1024*1024))
