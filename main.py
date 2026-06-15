@@ -94,7 +94,10 @@ print(pd.Series(dec_rmses).describe())
 
 
 #random forest regressor
-ran_reg = RandomForestRegressor()
+ran_reg = RandomForestRegressor(
+    n_estimators=20,
+    random_state=42
+)
 ran_reg.fit(housing_prepared, housing_labels)
 ran_preds=ran_reg.predict(housing_prepared)
 #ran_rmse= root_mean_squared_error(housing_labels, ran_preds)
