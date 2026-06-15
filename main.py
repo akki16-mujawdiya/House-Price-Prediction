@@ -102,3 +102,7 @@ ran_rmses= -cross_val_score(ran_reg, housing_prepared, housing_labels,scoring="n
 print(pd.Series(ran_rmses).describe())
 
 
+import pickle
+
+pickle.dump(ran_reg, open("model.pkl", "wb"))
+pickle.dump(full_pipeline, open("pipeline.pkl", "wb"))
