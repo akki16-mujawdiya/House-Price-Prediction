@@ -11,7 +11,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import root_mean_squared_error
 from sklearn.model_selection import cross_val_score 
-import streamlit as st
+
 
 
 
@@ -106,7 +106,7 @@ ran_rmses= -cross_val_score(ran_reg, housing_prepared, housing_labels,scoring="n
 print(pd.Series(ran_rmses).describe())
 
 
-import pickle
+import joblib
 
-pickle.dump(ran_reg, open("model.pkl", "wb"))
-pickle.dump(full_pipeline, open("pipeline.pkl", "wb"))
+joblib.dump(ran_reg, "model.pkl", compress=3)
+joblib.dump(full_pipeline, "pipeline.pkl", compress=3)
